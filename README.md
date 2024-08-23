@@ -10,7 +10,7 @@
 
 **Generate User and Product Models**
 
-     - rails g model User username:string password_digest:string
+     - rails g model User name:string email:string username:string password_digest:string
      - rails g model Product name:string description:text
 
 **Integrating JWT to our app**
