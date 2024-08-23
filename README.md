@@ -1,24 +1,31 @@
-# README
+**JWT**
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+    A JSON Web Token is an internet standard defined by the Internet Engineering Task Force (IETF) as a: "compact, URL-safe means of representing claims to be transferred between two parties".
 
-Things you may want to cover:
+**Installing**
+     
+     - gem 'jwt', '~> 2.7'
+     - gem "bcrypt", "~> 3.1.7"Using Rubygems:
+  We need to add the has_secure_password class method in our User model.
 
-* Ruby version
+**Generate User and Product Models**
 
-* System dependencies
+     - rails g model User username:string password_digest:string
+     - rails g model Product name:string description:text
 
-* Configuration
+**Integrating JWT to our app**
 
-* Database creation
+     - Our wrapper class is found in app/lib/json_web_token.rb
 
-* Database initialization
+**Using JWTs in Application Controller**
 
-* How to run the test suite
+     - We create an authenticate method to decode JSON Web tokens that users send us. If we can successfully verify the token, we return the User object that represents the user making the request. 
 
-* Services (job queues, cache servers, search engines, etc.)
+**Add Authentication Controller**
 
-* Deployment instructions
+    - Next, we need an AuthenticationController to which users can send requests and get a signed JSON Web Token from our server. This controller should be placed at app/controllers/authentication_controller.rb.
 
-* ...
+
+
+
+
